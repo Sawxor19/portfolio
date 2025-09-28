@@ -9,57 +9,22 @@
 :root{
   --accent:#00cccc;
   --muted:#bfcfcf;
-  --footer-h:50px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{height:100%;font-family:'Montserrat',sans-serif;scroll-behavior:smooth;}
-body{background:#071416;color:#eaf7f7;}
+html,body{font-family:'Montserrat',sans-serif;background:#071416;color:#eaf7f7;line-height:1.6;text-align:center;}
+body{scroll-behavior:smooth;}
 
-/* ===== FOOTER ===== */
-footer{
-  position:fixed;bottom:0;left:0;right:0;height:var(--footer-h);
-  display:flex;align-items:center;justify-content:center;gap:12px;
-  background:rgba(8,12,12,0.95);
-  border-top:1px solid rgba(255,255,255,0.1);
-  font-size:0.95rem;color:var(--muted);
-  opacity:0;
-  transition:opacity 0.5s;
-}
-footer.visible{opacity:1;}
-footer a{
-  color:var(--accent);
-  text-decoration:none;
-  padding:4px 10px;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,0.1);
-  transition:all .3s;
-}
-footer a:hover{
-  background:var(--accent);
-  color:#071313;
-  box-shadow:0 3px 8px rgba(0,204,204,0.4);
-}
-
-/* ===== MAIN CASCATA ===== */
-main{
-  height:100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}
+/* ===== SECTIONS ===== */
 section{
-  height:100vh;
+  padding:60px 20px;
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  scroll-snap-align:start;
-  padding:20px;
-  text-align:center;
 }
-
-/* ===== ELEMENTOS ===== */
 #profile-pic{
-  width:220px; height:220px;
+  width:200px;height:200px;
   border-radius:50%;
   object-fit:cover;
   border:4px solid var(--accent);
@@ -69,35 +34,34 @@ section{
   transform:translateY(30px);
   transition:0.6s;
 }
-h2, p, ul, li, a.button-link{
-  opacity:0;
-  transform:translateY(30px);
-  transition:all 0.6s ease-out;
-}
-h2{color:var(--accent);font-size:2rem;margin-bottom:15px;}
-p{max-width:700px;font-size:1.1rem;line-height:1.6;margin-bottom:10px;}
+h2{color:var(--accent);font-size:2rem;margin-bottom:15px;opacity:0;transform:translateY(30px);transition:all 0.6s ease-out;}
+p{max-width:700px;font-size:1.1rem;margin:0 auto 10px auto;opacity:0;transform:translateY(30px);transition:all 0.6s ease-out;}
+
+/* ===== LISTAS ===== */
 ul{
   list-style:none;
   padding:0;
   margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
 }
-
-/* ===== CARDS VIVOS ===== */
 ul li{
   background:rgba(0,0,0,0.15);
   padding:14px 18px;
-  margin:8px 0;
   border-radius:16px;
   font-size:1rem;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:center;
+  gap:8px;
   transition:all 0.3s ease;
   box-shadow:0 2px 6px rgba(0,204,204,0.3);
   border:1px solid rgba(0,204,204,0.1);
 }
 ul li:hover{
-  transform:translateY(-6px) scale(1.02);
+  transform:translateY(-4px) scale(1.02);
   background:rgba(0,204,204,0.1);
   box-shadow:0 6px 20px rgba(0,204,204,0.5);
 }
@@ -108,8 +72,9 @@ ul li:hover{
   border-radius:8px;
   font-size:0.8rem;
   font-weight:600;
-  margin-left:8px;
 }
+
+/* ===== BUTTON LINKS ===== */
 a.button-link{
   display:inline-block;
   padding:8px 16px;
@@ -118,7 +83,6 @@ a.button-link{
   border-radius:10px;
   font-weight:600;
   text-decoration:none;
-  margin-left:10px;
   transition:all 0.3s;
 }
 a.button-link:hover{
@@ -127,16 +91,14 @@ a.button-link:hover{
   box-shadow:0 4px 10px rgba(0,204,204,0.4);
 }
 
-/* ===== RPG SKILLS ===== */
+/* ===== RPG SKILLS 2 COL ===== */
 .rpg-skills {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  width: 100%;
   max-width: 700px;
   margin: 20px auto 0 auto;
 }
-
 .skill-card {
   background: rgba(0,204,204,0.1);
   border: 1px solid var(--accent);
@@ -144,18 +106,15 @@ a.button-link:hover{
   padding: 12px 16px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .skill-card:hover {
   transform: translateY(-6px) scale(1.03);
   box-shadow: 0 8px 20px rgba(0,204,204,0.6);
 }
-
 .skill-name {
   font-weight: 600;
   color: var(--accent);
   margin-bottom: 6px;
 }
-
 .skill-bar {
   width: 100%;
   height: 12px;
@@ -163,7 +122,6 @@ a.button-link:hover{
   border-radius: 6px;
   overflow: hidden;
 }
-
 .skill-fill {
   height: 100%;
   background: var(--accent);
@@ -171,11 +129,23 @@ a.button-link:hover{
   transition: width 0.6s ease;
 }
 
+/* ===== FOOTER ===== */
+footer{
+  padding:20px;
+  font-size:0.95rem;
+  color:var(--muted);
+  border-top:1px solid rgba(255,255,255,0.1);
+  margin-top:40px;
+}
+footer a{color:var(--accent);text-decoration:none;margin:0 6px;}
+footer a:hover{text-decoration:underline;}
+
 /* ===== RESPONSIVO ===== */
 @media(max-width:600px){
   #profile-pic{width:150px;height:150px;}
   h2{font-size:1.5rem;}
   p, ul li{font-size:1rem;}
+  .rpg-skills{grid-template-columns:1fr;}
 }
 section:nth-child(odd){background:#081b1f;}
 section:nth-child(even){background:#0b2a30;}
@@ -183,117 +153,65 @@ section:nth-child(even){background:#0b2a30;}
 </head>
 <body>
 
-<main>
-  <!-- SOBRE -->
-  <section id="sobre">
-    <img id="profile-pic" src="image0.jpeg" alt="Victor Hugo">
-    <h2>Bem-vindo ao meu portfólio!</h2>
-    <p>Meu nome é Victor Hugo Sanches, natural de Santos, cidade onde nasci e atualmente resido, estou cursando Ciência de Dados na Universidade Santa Cecília, com previsão para o término no final de 2026.</p>
-    <p>Sou apaixonado por tecnologia, dados, programação e criar soluções inteligentes que impactam diretamente a vida das pessoas.</p>
-  </section>
+<!-- SOBRE -->
+<section id="sobre">
+  <img id="profile-pic" src="image0.jpeg" alt="Victor Hugo">
+  <h2>Bem-vindo ao meu portfólio!</h2>
+  <p>Meu nome é Victor Hugo Sanches, natural de Santos, cidade onde nasci e atualmente resido, estou cursando Ciência de Dados na Universidade Santa Cecília, com previsão para o término no final de 2026.</p>
+  <p>Sou apaixonado por tecnologia, dados, programação e criar soluções inteligentes que impactam diretamente a vida das pessoas.</p>
+</section>
 
-  <!-- PROJETOS -->
-  <section id="projetos">
-    <h2>Projetos</h2>
-    <ul>
-      <li>
-        💻 Sistema de Orçamento Automatizado 
-        <span class="badge">Python + Tkinter</span>
-        <a href="https://github.com/Sawxor19/projeto.mosquiteira" target="_blank" class="button-link">Ver Projeto</a>
-      </li>
-      <li>
-        📊 Visualizações de corrida e análises de dados
-        <span class="badge">Python + Matplotlib</span>
-      </li>
-      <li>
-        🌐 Website Pessoal (Futuro)
-        <span class="badge">HTML + CSS + JS</span>
-      </li>
-      <li>
-        🤖 Chatbot Inteligente (Futuro)
-        <span class="badge">Python + IA</span>
-      </li>
-    </ul>
-  </section>
+<!-- PROJETOS -->
+<section id="projetos">
+  <h2>Projetos</h2>
+  <ul>
+    <li>💻 Sistema de Orçamento Automatizado <span class="badge">Python + Tkinter</span> <a href="https://github.com/Sawxor19/projeto.mosquiteira" target="_blank" class="button-link">Ver Projeto</a></li>
+    <li>📊 Visualizações de corrida e análises de dados <span class="badge">Python + Matplotlib</span></li>
+    <li>🌐 Website Pessoal (Futuro) <span class="badge">HTML + CSS + JS</span></li>
+    <li>🤖 Chatbot Inteligente (Futuro) <span class="badge">Python + IA</span></li>
+  </ul>
+</section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="rpg-skills">
-      <div class="skill-card">
-        <div class="skill-name">🐍 Python</div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-name">📊 Estatística</div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 75%;"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-name">🔧 Git & GitHub</div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-name">📑 Excel / Google Planilhas</div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-name">💬 Comunicação</div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-name">🌐 HTML</div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-name">🎨 CSS</div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 75%;"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-name">☕ Java</div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-name">🤖 Inteligência Artificial</div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 60%;"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-name">🗣️ Inglês</div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
-      </div>
-    </div>
-  </section>
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="rpg-skills">
+    <div class="skill-card"><div class="skill-name">🐍 Python</div><div class="skill-bar"><div class="skill-fill" style="width:90%;"></div></div></div>
+    <div class="skill-card"><div class="skill-name">📊 Estatística</div><div class="skill-bar"><div class="skill-fill" style="width:75%;"></div></div></div>
+    <div class="skill-card"><div class="skill-name">🔧 Git & GitHub</div><div class="skill-bar"><div class="skill-fill" style="width:85%;"></div></div></div>
+    <div class="skill-card"><div class="skill-name">📑 Excel / Google Planilhas</div><div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div></div>
+    <div class="skill-card"><div class="skill-name">💬 Comunicação</div><div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div></div>
+    <div class="skill-card"><div class="skill-name">🌐 HTML</div><div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div></div>
+    <div class="skill-card"><div class="skill-name">🎨 CSS</div><div class="skill-bar"><div class="skill-fill" style="width:75%;"></div></div></div>
+    <div class="skill-card"><div class="skill-name">☕ Java</div><div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div></div>
+    <div class="skill-card"><div class="skill-name">🤖 Inteligência Artificial</div><div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div></div>
+    <div class="skill-card"><div class="skill-name">🗣️ Inglês</div><div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div></div>
+  </div>
+</section>
 
-  <!-- CONTATO -->
-  <section id="contato">
-    <h2>Contato</h2>
-    <ul style="display:flex;flex-direction:column;align-items:center;gap:10px;">
-      <li>📧 <a href="mailto:sawxor@icloud.com" class="button-link">Enviar Email</a></li>
-      <li>📞 <a href="tel:+5513996667776" class="button-link">(13) 99666-7776</a></li>
-      <li>🔗 
-        <a href="https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank" class="button-link">LinkedIn</a>
-        <a href="https://github.com/Sawxor19" target="_blank" class="button-link">GitHub</a>
-      </li>
-    </ul>
-  </section>
-</main>
+<!-- CONTATO -->
+<section id="contato">
+  <h2>Contato</h2>
+  <ul>
+    <li>📧 <a href="mailto:sawxor@icloud.com" class="button-link">Enviar Email</a></li>
+    <li>📞 <a href="tel:+5513996667776" class="button-link">(13) 99666-7776</a></li>
+    <li>🔗 
+      <a href="https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank" class="button-link">LinkedIn</a>
+      <a href="https://github.com/Sawxor19" target="_blank" class="button-link">GitHub</a>
+    </li>
+  </ul>
+</section>
 
-<footer id="footer">© 2025 Victor Hugo Sanches</footer>
+<footer>© 2025 Victor Hugo Sanches | <a href="https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank">LinkedIn</a> | <a href="https://github.com/Sawxor19" target="_blank">GitHub</a></footer>
 
 <script>
-// FADE + SLIDE AO SCROLL
+// Fade e animação ao scroll
 const sections = document.querySelectorAll('section');
-const footer = document.getElementById('footer');
 const observer = new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     const elements = entry.target.querySelectorAll('h2, p, ul, li, .skill-card, a.button-link, #profile-pic');
     if(entry.isIntersecting){
       elements.forEach(el=>{el.style.opacity=1;el.style.transform='translateY(0)';});
-    }
-    // FOOTER VISIBILITY
-    if(entry.target.id==='contato'){
-      footer.classList.add('visible');
-    }else{
-      footer.classList.remove('visible');
     }
   });
 },{threshold:0.2});
