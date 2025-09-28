@@ -14,13 +14,7 @@
   --muted:#bfcfcf;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-html,body{height:100%;}
-body{
-  font-family:"Montserrat",sans-serif;
-  background:#071416;
-  color:#eaf7f7;
-  overflow:hidden;
-}
+html,body{height:100%;font-family:"Montserrat",sans-serif;overflow:hidden;background:#071416;color:#eaf7f7;}
 
 /* ===== FUNDO ANIMADO ===== */
 body::before{
@@ -37,14 +31,11 @@ body::before{
   100%{background-position:0% 50%;}
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header{
-  position:fixed;top:0;left:0;right:0;
-  height:var(--header-h);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:10px;
-  background:rgba(8,12,12,0.85);
-  backdrop-filter:blur(8px);
+  position:fixed;top:0;left:0;right:0;height:var(--header-h);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  background:rgba(8,12,12,0.95); /* fallback sem blur */
   border-bottom:1px solid rgba(255,255,255,0.1);
   z-index:20;
 }
@@ -58,30 +49,25 @@ nav ul{
   display:flex;gap:12px;list-style:none;
 }
 nav button{
-  background:transparent;
-  color:var(--muted);
+  background:transparent;color:var(--muted);
   border:1px solid rgba(255,255,255,0.1);
-  padding:6px 14px;
-  border-radius:12px;
-  cursor:pointer;
-  font-weight:600;
-  transition:.3s;
+  padding:6px 14px;border-radius:12px;
+  cursor:pointer;font-weight:600;transition:.3s;
 }
-nav button.active,
-nav button:hover{
+nav button.active, nav button:hover{
   background:var(--accent);
   color:#071313;
 }
 
-/* VIEWPORT E SLIDES */
+/* ===== VIEWPORT ===== */
 .viewport{
   position:absolute; top:var(--header-h); bottom:var(--footer-h); left:0; right:0;
   overflow:hidden; display:flex; align-items:center; justify-content:center;
   perspective:1200px;
+  height: calc(100% - var(--header-h) - var(--footer-h));
 }
 .slide{
-  position:absolute;
-  width:90%; max-width:900px; height:90%;
+  position:absolute;width:90%; max-width:900px; height:90%;
   display:flex; align-items:center; justify-content:center;
   opacity:0; transform:translateX(100px) scale(0.95);
   transition:opacity .6s ease, transform .6s ease;
@@ -90,7 +76,7 @@ nav button:hover{
   opacity:1; transform:translateX(0) scale(1); position:relative;
 }
 
-/* CARD 3D/Paralaxe DINÂMICA */
+/* ===== CARD ===== */
 .card{
   width:100%; height:100%;
   background:var(--card-bg);
@@ -108,10 +94,9 @@ nav button:hover{
 }
 .card:hover{
   box-shadow:0 15px 40px rgba(0,204,204,0.5);
-  cursor:pointer;
 }
 
-/* CONTEÚDO */
+/* ===== CONTEÚDO ===== */
 #profile-pic{
   width:240px; height:240px;
   border-radius:50%;
@@ -119,27 +104,18 @@ nav button:hover{
   border:4px solid var(--accent);
   box-shadow:0 6px 20px rgba(0,204,204,0.4);
 }
-h2{
-  color:var(--accent);
-  font-size:1.6rem;
-  text-transform:uppercase;
-}
-p{
-  color:#eaf7f7; max-width:700px; line-height:1.6; font-size:1.05rem;
-  text-align:center;
-}
+h2{color:var(--accent); font-size:1.6rem; text-transform:uppercase;}
+p{color:#eaf7f7; max-width:700px; line-height:1.6; font-size:1.05rem; text-align:center;}
 .muted{ color:var(--muted); }
 ul.clean{
   list-style:none; display:flex; flex-direction:column; gap:12px;
-  width:100%; max-width:700px;
-  align-items:center;
+  width:100%; max-width:700px; align-items:center;
 }
 ul.clean li{
   padding:12px 14px; border-radius:14px; border:1px solid rgba(255,255,255,0.08);
   background:rgba(0,0,0,0.18); font-size:1rem;
   display:flex; align-items:center; justify-content:center; gap:10px;
-  transform:translateY(10px);
-  opacity:0;
+  transform:translateY(10px); opacity:0;
   animation:fadeInUp .5s forwards;
 }
 ul.clean li:nth-child(1){animation-delay:0.2s;}
@@ -147,42 +123,31 @@ ul.clean li:nth-child(2){animation-delay:0.4s;}
 ul.clean li:nth-child(3){animation-delay:0.6s;}
 ul.clean li:nth-child(4){animation-delay:0.8s;}
 ul.clean li:nth-child(5){animation-delay:1s;}
-@keyframes fadeInUp{
-  to{opacity:1; transform:translateY(0);}
-}
+@keyframes fadeInUp{ to{opacity:1; transform:translateY(0);} }
 
-/* BOTÕES LINKS */
+/* ===== BOTÕES LINKS ===== */
 a.button-link{
-  display:inline-block;
-  padding:8px 14px;
-  background:rgba(0,204,204,0.15);
-  color:var(--accent);
-  border-radius:10px;
-  font-weight:600;
-  text-decoration:none;
-  transition: all 0.3s ease;
-  font-size:0.95rem;
+  display:inline-block; padding:8px 14px;
+  background:rgba(0,204,204,0.15); color:var(--accent);
+  border-radius:10px; font-weight:600; text-decoration:none;
+  transition: all 0.3s ease; font-size:0.95rem;
 }
 a.button-link:hover{
-  background:var(--accent);
-  color:#071313;
+  background:var(--accent); color:#071313;
   box-shadow:0 4px 10px rgba(0,204,204,0.4);
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
   position:fixed; bottom:0; left:0; right:0;
-  height:var(--footer-h);
-  display:flex; align-items:center; justify-content:center;
-  gap:12px;
-  background: rgba(8,12,12,0.9);
+  height:var(--footer-h); display:flex; align-items:center; justify-content:center;
+  gap:12px; background: rgba(8,12,12,0.95);
   border-top:1px solid rgba(255,255,255,0.1);
-  font-size:1rem;
-  color:var(--muted);
+  font-size:1rem; color:var(--muted);
 }
 footer a.button-link{ font-size:0.95rem; }
 
-/* DOTS */
+/* ===== DOTS ===== */
 .dots{
   position:absolute; bottom:16px; right:16px; display:flex; gap:8px;
 }
@@ -192,13 +157,14 @@ footer a.button-link{ font-size:0.95rem; }
 }
 .dot.active{ background:var(--accent); }
 
-/* RESPONSIVO */
+/* ===== RESPONSIVO ===== */
 @media(max-width:600px){
   :root{--header-h:100px;--footer-h:50px;}
   header h1{font-size:1.4rem;}
   nav button{padding:4px 10px; font-size:0.85rem;}
   #profile-pic{width:180px;height:180px;}
   p{font-size:0.95rem;}
+  .card{transform:none !important;}
 }
 </style>
 </head>
@@ -217,12 +183,11 @@ footer a.button-link{ font-size:0.95rem; }
 </header>
 
 <div class="viewport">
-<!-- SOBRE -->
 <section class="slide active">
 <div class="card">
 <img id="profile-pic" src="image0.jpeg" alt="Foto Victor Hugo">
 <h2>Sobre</h2>
-<p class="muted">Olá! Sou <strong>Victor Hugo Sanches</strong>, 26 anos, estudante de Ciência de Dados na Universidade Santa Cecília. Busco estágio na área e aplico Python em automações e análises.</p>
+<p class="muted">Olá! Sou <strong>Victor Hugo Sanches</strong>, 26 anos, estudante de Ciência de Dados na Universidade Santa Cecília. Busco estágio e aplico Python em automações e análises.</p>
 <ul class="clean">
 <li>🎯 Objetivo: Estágio em Ciência de Dados</li>
 <li>🏃‍♂️ Disponibilidade: manhãs para treinos e projetos</li>
@@ -230,20 +195,17 @@ footer a.button-link{ font-size:0.95rem; }
 </div>
 </section>
 
-<!-- PROJETOS -->
 <section class="slide">
 <div class="card">
 <h2>Projetos</h2>
 <p class="muted">Alguns trabalhos e códigos publicados.</p>
 <ul class="clean">
-<li>💻 <strong>Sistema de Orçamento</strong> — automação em Python. 
-<a href="https://github.com/Sawxor19/projeto.mosquiteira" target="_blank" class="button-link">GitHub →</a></li>
-<li>📊 <strong>Visualizações de corrida</strong> — análises e gráficos (demo)</li>
+<li>💻 Sistema de Orçamento — automação em Python. <a href="https://github.com/Sawxor19/projeto.mosquiteira" target="_blank" class="button-link">GitHub →</a></li>
+<li>📊 Visualizações de corrida — análises e gráficos (demo)</li>
 </ul>
 </div>
 </section>
 
-<!-- SKILLS -->
 <section class="slide">
 <div class="card">
 <h2>Skills</h2>
@@ -257,7 +219,6 @@ footer a.button-link{ font-size:0.95rem; }
 </div>
 </section>
 
-<!-- CONTATO -->
 <section class="slide">
 <div class="card">
 <h2>Contato</h2>
@@ -265,8 +226,7 @@ footer a.button-link{ font-size:0.95rem; }
 <ul class="clean">
 <li>📧 <a href="mailto:sawxor@icloud.com" class="button-link">Enviar Email</a></li>
 <li>📞 <a href="tel:+5513996667776" class="button-link">(13) 99666-7776</a></li>
-<li>🔗 <a href="https://linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank" class="button-link">LinkedIn</a> • 
-<a href="https://github.com/Sawxor19" target="_blank" class="button-link">GitHub</a></li>
+<li>🔗 <a href="https://linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank" class="button-link">LinkedIn</a> • <a href="https://github.com/Sawxor19" target="_blank" class="button-link">GitHub</a></li>
 </ul>
 </div>
 </section>
@@ -322,22 +282,7 @@ footer a.button-link{ font-size:0.95rem; }
   const img=document.getElementById('profile-pic');
   img.addEventListener('error',()=>img.src="https://via.placeholder.com/240x240.png?text=VH");
 
-  // PARALAX DINÂMICA
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card=>{
-    card.addEventListener('mousemove', e=>{
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width/2;
-      const y = e.clientY - rect.top - rect.height/2;
-      const rotateX = (-y/rect.height)*10;
-      const rotateY = (x/rect.width)*10;
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-    });
-    card.addEventListener('mouseleave', ()=>{
-      card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
-    });
-  });
-
+  // Paralaxe removida no mobile via CSS
   window.addEventListener('load',()=>animateSlide(slides[0]));
 })();
 </script>
