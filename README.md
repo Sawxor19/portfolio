@@ -21,11 +21,13 @@ Alguns dos meus trabalhos e códigos publicados:
 
 ## Skills
 - **Python** (Tkinter, Pandas, Matplotlib)
-- **Git & GitHub** — versionamento de código
-- **Excel / Google Planilhas** — relatórios e análises
+- **HTML**
+- **CSS**
+- **JAVA**
 - **Estatística descritiva e lógica de programação**
 - **Comunicação clara e raciocínio analítico**
 - **Inglês intermediário/avançado** (leitura e escrita técnica)
+- **Inteligência Artificial**
 
 ---
 
