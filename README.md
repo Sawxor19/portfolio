@@ -14,8 +14,7 @@ Tenho experiência em atendimento ao cliente e soluções personalizadas, o que 
 ## Projetos
 Alguns dos meus trabalhos e códigos publicados:
 
-- **[Sistema de Orçamento Automatizado](https://github.com/Sawxor19/projeto.mosquiteira)** — Automação em Python para gerar orçamentos de telas mosquiteiras.
-- Análises e visualizações de dados com Python, Excel e Pandas.
+- **[Sistema de Orçamento Automatizado](https://github.com/Mosquiteira/orcamento)** — Automação em HTML, CSS e Java para gerar orçamentos por whatsapp.
 
 ---
 
